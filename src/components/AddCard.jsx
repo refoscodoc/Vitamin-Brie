@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
 const useStyles = makeStyles({
   root: {
     background: '#222222',
@@ -51,11 +52,11 @@ export default class AddCard extends React.Component {
         this.state = {
             cardname:'',
             author:'',
-
+            path:'',
+            notes:''
         };
 
     };
-    
 
     updateInfo = (event) =>{
         let fieldName = event.target.name;
@@ -64,23 +65,34 @@ export default class AddCard extends React.Component {
             this.setState({cardname: fieldValue});
         }
         else if(fieldName === 'author'){
-            this.setState({author:fieldValue});
+            this.setState({author: fieldValue});
+        }
+        //this might have to go
+        else if(fieldName === 'path'){
+            this.setState({path: fieldValue});
+        }
+        else if(fieldName === 'notes'){
+            this.setState({notes: fieldValue});
         }
 };
 
 
     addCard=(e)=>{
 
-    let {cardname,author}=this.state;
-    fetch('localhost:3000/add_card', {
+    let {cardname,author,path,notes} = this.state;
+    
+    fetch('http://localhost:3000/addgame', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             cardname:cardname,
             author:author,
-
+            path: path,
+            notes: notes
+            })
         })
-        }).then(response=>response.json()).then(data=>{
+        .then(response => response.json())
+        .then(data => {
             window.alert(data)
             //Do anything else like Toast etc.
     })
@@ -98,11 +110,19 @@ export default class AddCard extends React.Component {
         <input onChange={this.updateInfo} name="cardname" value={this.state.cardname}/>
     </div>
     <div>
-        <label >Path to the EXE</label>
+        <label>Author</label>
         <input onChange={this.updateInfo} name="author" value={this.state.author}/>
     </div>
+    <div>
+        <label>Path</label>
+        <input onChange={this.updateInfo} name="path" value={this.state.path}/>
+    </div>
+    <div>
+        <label>Notes</label>
+        <input onChange={this.updateInfo} name="notes" value={this.state.notes}/>
+    </div>
 
-    <button onClick={this.addCard}>Add</button>                                 
+    <button onClick={this.addCard}>Add Game</button>                                 
 
     </div>
 

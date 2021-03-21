@@ -6,35 +6,36 @@ var mysql = require('mysql');
 const app = express(); 
 app.use(bodyParser.json());
 
-/*app.use(express.json()
-app.use(express.urlencoder({ extended: false})*/
+/*app.use(express.json())
+app.use(express.urlencoder({ extended: false})
+
+app.get('/test', (req, res) => res.send('woohhoo'));
+app.get('/add_card', (req, res) => res.send('woohhoo'));*/
 
 app.use(
 
         connection(mysql,{
 
-            host: 'localhost', //'localhost',
-            user: 'refoscodoc',
+            host: 'localhost', //'85.10.205.173 for db4free.net',
+            user: 'alberto',
             password : 'vinazza',
-            port : 3001, //port mysql
-            database:'sampledb'
+            port : 3306, //port mysql
+            database:'gamesdb'
 
         },'pool')); //or single
 
-        app.post('/add_card',(req,res)=>{
+        app.post('/addgame',(req,res)=>{
 
-        let {game_name,author,} = req.body;
+        let {cardname,author,} = req.body;
 
 
-        if(!game_name) return res.status(400).json('Game Name cant be blank');
+        if(!cardname) return res.status(400).json('Game Name cant be blank');
         if(!author) return res.status(400).json('Exe path cant be blank');
 
-        var data={game_name:game_name, author:author};
+        var data={cardname:cardname, author:author};
 
 
-        var query = connection.query("INSERT INTO books set ? ",data, 
-        function(err, rows)
-        {
+        var query = connection.query("INSERT INTO games_table (cardname, author) VALUES ('metro', 'exodus');",data, function(err, rows) {
 
           if (err){
             //If error

@@ -13,6 +13,13 @@ code {
   font-family: 'DotGothic16', sans-serif;
 }
 
+button {
+  background: rgb(39, 39, 0);
+  color: rgb(185, 185, 158);
+  border: none;
+  font-family: 'DotGothic16', sans-serif;
+}
+
 .boxes {
   margin-top: 1em;
   background-color: transparent;
@@ -64,12 +71,14 @@ code {
 }
 
 input {
-  border-radius: 5px;
+  background: rgb(185, 185, 158);;
+  border: 2px solid black;
 }
 
 .MuiToolbar-root {
   color: rgb(185, 185, 158);
   background: rgb(2, 2, 2);
+  font-family: 'DotGothic16', sans-serif;
 }
 
 .MuiPaper-root {

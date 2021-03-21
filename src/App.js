@@ -14,7 +14,7 @@ const App = () => (
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/addgame' component={NewGame} />
+        <Route exact path='/newgame' component={NewGame} />
       </Switch>  
     </div>    
   </Router>

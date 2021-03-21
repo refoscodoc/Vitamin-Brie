@@ -139,7 +139,7 @@ const Navbar = props => {
       onClose={handleMobileMenuClose}
     >
 
-      <Link to={'/addgame'}>
+      <Link to={'/newgame'}>
               <Button color="inherit" className={classes.buttonFontSize}>Add A Game</Button>
       </Link>
 
