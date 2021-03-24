@@ -20,6 +20,11 @@ button {
   font-family: 'DotGothic16', sans-serif;
 }
 
+h6 {
+  color: rgb(185, 185, 158);
+  font-family: 'DotGothic16', sans-serif;
+}
+
 .boxes {
   margin-top: 1em;
   background-color: transparent;
@@ -92,4 +97,10 @@ input {
       rgba(255, 0, 0, 0.45)
     ),
     url(./imgs/default.jpg);
+}
+
+.MuiButton-label {
+  color: rgb(185, 185, 158);
+  background: rgb(2, 2, 2);
+  font-family: 'DotGothic16', sans-serif;
 }

@@ -85,8 +85,8 @@ export default class AddCard extends React.Component {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            cardname:cardname,
-            author:author,
+            cardname: cardname,
+            author: author,
             path: path,
             notes: notes
             })

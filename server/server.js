@@ -26,7 +26,7 @@ mysqlConnection.connect((err) => {
 });
 
 
-app.listen(3005, () => console.log('Express running at 3000'));
+app.listen(3005, () => console.log('Express running at 3005'));
 
 //this gets all the employees - and should return a JSON with it in the shell after looking for localhost:3000/addgame in the browser
 app.get('/getgame', (req, res) => {
@@ -59,8 +59,9 @@ app.delete('/deletegame/:id', (req, res) => {
 //for adding a game we created a stored prcedures in mysql workbench
 app.post('/addgame', (req, res) => {
     let emp = req.body;
-    var sql = "SET @id = ?;SET @cardname = ?;SET @author = ?; SET @path = ?; SET @notes = ?;CALL GameAddOrEdit(@id,@cardname,@author,@path,@notes);";
-    mysqlConnection.query(sql, [emp.id, emp.cardname, emp.author, emp.path, emp.notes], (err, rows, fields) => {
+    //var sql = "SET @id = ?;SET @cardname = ?;SET @author = ?; SET @path = ?; SET @notes = ?;CALL GameAddOrEdit(@id,@cardname,@author,@path,@notes);";
+    var sql = "INSERT INTO games_table SET ?";
+    mysqlConnection.query(sql, emp, (err, rows, fields) => {
 
         if(!err)
             res.send(rows)

@@ -21,7 +21,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 const styles = makeStyles((theme) => ({
-      
+    
     grow: {
       flexGrow: 1,
     },
@@ -125,6 +125,8 @@ const Navbar = props => {
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
+
+    
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -139,9 +141,7 @@ const Navbar = props => {
       onClose={handleMobileMenuClose}
     >
 
-      <Link to={'/newgame'}>
-              <Button color="inherit" className={classes.buttonFontSize}>Add A Game</Button>
-      </Link>
+      
 
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
@@ -188,6 +188,7 @@ const Navbar = props => {
           <Typography className={classes.title} variant="h6" noWrap>
             Li Giuochi Mei
           </Typography>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -201,6 +202,12 @@ const Navbar = props => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+
+              
+          <Link to={'/newgame'}>
+            <Button color="inherit" className={classes.buttonFontSize}>Add A Game</Button>
+          </Link>
+
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
